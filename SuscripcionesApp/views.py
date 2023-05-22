@@ -38,7 +38,7 @@ class SubscriptionByUserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = SubscriptionSerializer
     
     def get_queryset(self):
-        correo = self.kwargs['correo']
+        correo = "example@gmail.com"
         queryset = Subscription.objects.filter(user=correo)
         return queryset
 
@@ -112,7 +112,6 @@ def consumir(request):
                 # Realizar la llamada a la API externa correspondiente
             else :
                 response = requests.get(service.url_api)
-                print("response",response)
 
             if response.status_code == 400:
                 return Response({'mensaje': 'Url no valida '})
@@ -184,3 +183,5 @@ def suscribir(request):
             return Response(serializer.data)
     except Subscription.DoesNotExist:
         return Response({'mensaje': 'El correo o servicio no existe para vincular'}, status=status.HTTP_404_NOT_FOUND)
+
+
