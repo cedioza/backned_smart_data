@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path ,include
 from rest_framework.routers import DefaultRouter
 from UsuariosApp.views import UsuarioViewSet
-from SuscripcionesApp.views import SubscriptionViewSet , ServiceViewSet
+from SuscripcionesApp.views import SubscriptionViewSet , ServiceViewSet,SubscriptionByUserViewSet  ,prueba ,suscribir, desuscribir
 
 
 # Crea una instancia de DefaultRouter
@@ -26,19 +26,18 @@ router = DefaultRouter()
 
 # Registra las vistas de cada aplicación en el router
 router.register('usuarios', UsuarioViewSet)
-router.register('subscripciones', SubscriptionViewSet)
+router.register('suscripciones', SubscriptionViewSet)
 router.register('servicios', ServiceViewSet)
+router.register(r'suscripciones_por_correo', SubscriptionByUserViewSet, basename='subscription-by-user')
 
 
-
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('api/', include('UsuariosApp.urls')),
-#     path('api/', include('SuscripcionesApp.urls')),
-# ]
 
 urlpatterns = [
     # Ruta raíz del API
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('consumir/', prueba, name='prueba'),
+    path('suscribir/', suscribir, name='suscribir'),
+    path('desuscribir/', desuscribir, name='suscribir'),
+
 ]
