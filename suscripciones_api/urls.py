@@ -16,8 +16,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path ,include
+from rest_framework.routers import DefaultRouter
+from UsuariosApp.views import UsuarioViewSet
+from SuscripcionesApp.views import SubscriptionViewSet , ServiceViewSet
 
+
+# Crea una instancia de DefaultRouter
+router = DefaultRouter()
+
+# Registra las vistas de cada aplicación en el router
+router.register('usuarios', UsuarioViewSet)
+router.register('subscripciones', SubscriptionViewSet)
+router.register('servicios', ServiceViewSet)
+
+
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('api/', include('UsuariosApp.urls')),
+#     path('api/', include('SuscripcionesApp.urls')),
+# ]
 
 urlpatterns = [
+    # Ruta raíz del API
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]
