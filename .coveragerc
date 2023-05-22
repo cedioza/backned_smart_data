@@ -1,0 +1,9 @@
+[run]
+omit =
+    */venv/*
+    */migrations/*
+    *__init__.py
+    */suscripciones_api\*
+    *urls.py*  
+    *manage.py  
+
