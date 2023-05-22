@@ -26,9 +26,11 @@ from drf_yasg import openapi
 router = DefaultRouter()
 
 # Registra las vistas de cada aplicación en el router
+
 router.register('usuarios', UsuarioViewSet)
 router.register('suscripciones', SubscriptionViewSet)
 router.register('servicios', ServiceViewSet)
+
 
 
 
@@ -60,7 +62,7 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
     path('consumir/', consumir, name='prueba'),
     path('suscribir/', suscribir, name='suscribir'),
     path('desuscribir/', desuscribir, name='suscribir'),

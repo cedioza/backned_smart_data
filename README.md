@@ -127,3 +127,7 @@ para acceder a documentación en Swagger podemos acceder al siguiente enlace en 
 
 http://127.0.0.1:8000/swagger/
 
+Adicional tiene una documentacion corta en postman
+
+https://documenter.getpostman.com/view/17377152/2s93m354EM#aa600443-bcce-454e-bac4-9befed7e1486
+
